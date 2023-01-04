@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    //配置附加链接到主进程上调试
+    "configurations": [
+      {
+        "name": "(gdb) Attach",
+        "type": "cppdbg",
+        "request": "attach",
+        "program": "${workspaceFolder}/objs/nginx",
+        "MIMode": "gdb",
+        "processId": "5818"
+      },
+
+
+      {
+        "name": "(gdb) Launch",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/objs/nginx",
+        "args": [
+          "-c",
+          "${workspaceFolder}/conf/nginx.conf"
+        ],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "MIMode": "gdb",
+        //"miDebuggerPath": "/usr/bin/gdb",
+        "miDebuggerPath": "${workspaceFolder}/gdb",
+
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      }
+    ]
+  }
